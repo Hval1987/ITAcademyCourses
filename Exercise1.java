@@ -10,26 +10,7 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class Exercise1 {
-    //    /*public static void main(String[] args) {
-//      int a=1890;
-//        int arr[]=new int[4];
-//        for(int i=arr.length-1;i>=0;i--){
-//            arr[i]=a%10;
-//            a=a/10;
-//        }
-//        for(int x:arr){
-//            System.out.print(x + "-");
-//        }
-//        System.out.println();
-//        if((arr[0]+arr[1])==(arr[2]+arr[3]))
-//            System.out.println("true");
-//        else
-//            System.out.println("false");
-//
-//
-//
-//    } */
-    static void joke() throws InterruptedException {
+    static void waity() throws InterruptedException {
         for(int i=0;i<11;i++) {
             System.out.print("..");
             Thread.sleep(150);
@@ -365,7 +346,7 @@ public class Exercise1 {
                 case 10:{
                     task10(5);
                     System.out.println("Загрузка");
-                    joke();
+                    waity();
 
                     System.out.println("в разработке  :(");
                     break;

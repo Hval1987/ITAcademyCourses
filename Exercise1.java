@@ -1,4 +1,5 @@
 
+package com.lesson1;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -10,13 +11,17 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class Exercise1 {
-    static void waity() throws InterruptedException {
-        for(int i=0;i<11;i++) {
-            System.out.print("..");
-            Thread.sleep(150);
-        }
-        System.out.println();
+   
+    static int []  mirrorArr(int arr[]){
+     for (int i=0; i<arr.length/2;i++){
+         int temp=arr[i];
+         arr[i]=arr[arr.length-1-i];
+         arr[arr.length-1-i]=temp;
+     }
+ return arr;
     }
+
+
     static boolean task1(int x){
         int value=x;
         int arr[]=new int[4];
@@ -122,23 +127,16 @@ public class Exercise1 {
 
     }
     static void task10(int n) {
-        int arr[] = new int[n+1];
-        for (int i = 1; i <= n; i++) {
-            if (i % 2 != 0) {
-                for (int j = 1; j <= n; j++) {
-                    arr[j] = j;
+        int arr[] = new int[n];
 
-                }
-                System.out.println(Arrays.toString(arr));
-            } else
-                for (int j = 0; j < n; j++) {
-                    arr[j] = n - j;
+            for (int i = 0; i < n; i++) {
 
-
-                }
+                arr[i] = i + 1;
+            }
             System.out.println(Arrays.toString(arr));
+            for(int count =1;count<n;count++){
 
-
+                System.out.println(Arrays.toString(mirrorArr(arr)));
         }
     }
 
@@ -344,11 +342,16 @@ public class Exercise1 {
                     break;
                 }
                 case 10:{
-                    task10(5);
-                    System.out.println("Загрузка");
-                    waity();
+                    System.out.println("введите размер матрицы(целое число):");
+                    Scanner test10=new Scanner(System.in);
+                    while(!test10.hasNextInt()) {
+                        test10.nextLine();
+                        System.out.println("введите целое число:");
+                    }
+                    task10(test10.nextInt());
 
-                    System.out.println("в разработке  :(");
+
+
                     break;
                 }
 

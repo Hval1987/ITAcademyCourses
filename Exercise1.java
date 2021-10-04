@@ -1,5 +1,4 @@
-
-package com.lesson1;
+package com.mycourses.itacademy.epam.lesson1;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -11,107 +10,116 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class Exercise1 {
-   
-    static int []  mirrorArr(int arr[]){
-     for (int i=0; i<arr.length/2;i++){
-         int temp=arr[i];
-         arr[i]=arr[arr.length-1-i];
-         arr[arr.length-1-i]=temp;
-     }
- return arr;
+    private static int []  mirrorArr(int arr[]){
+         for (int i=0; i<arr.length/2;i++){
+             int temp=arr[i];
+             arr[i]=arr[arr.length-1-i];
+             arr[arr.length-1-i]=temp;
+             }
+         return arr;
     }
-
-
-    static boolean task1(int x){
+    private static boolean task1(int x){
         int value=x;
         int arr[]=new int[4];
-        for(int i=arr.length-1;i>=0;i--){
-            arr[i]=value%10;
-            value=value/10;
-        }
+            for(int i=arr.length-1;i>=0;i--){
+                arr[i]=value%10;
+                value=value/10;
+               }
         for(int iter:arr){
             System.out.print(iter+ "-");
         }
         System.out.println();
-        if((arr[0]+arr[1])==(arr[2]+arr[3]))
+        if((arr[0]+arr[1])==(arr[2]+arr[3])) {
             return true;
-        else
+        }
+        else {
             return false;
-
-
-
+        }
 
     }
-    static double task2(int a,int b, int c){
-
+    private static double task2(int a,int b, int c){
         return ((b+Math.sqrt(b*b+4*(a*c)))/2*a ) -(a*a*a*c+b*b) ;
     }
-    static void task3(double x,double y){
-
+    private static void task3(double x,double y){
         double square= x*y/2;
         double perim=Math.sqrt(x*x+y*y)+x+y;
         System.out.println("Площадь треугольника равна= "+square);
         System.out.println("Периметр треугольника равен="+perim);
     }
-    static boolean task4(double x, double y){
+    private static boolean task4(double x, double y){
         if(y>0 & y<=4)
-            if(x>=-2 & x<=2)
+            if(x>=-2 & x<=2) {
                 return true;
-
-        else if(y>=-3 & y<=0)
-            if(x>=-4 & x<=4)
-                return true;
-        else
-            return false;
+            }
+        else if(y>=-3 & y<=0) {
+                if (x >= -4 & x <= 4) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
 
       return false;
     }
-    static void task5(double x, double y, double z){
+    private static void task5(double x, double y, double z){
         //проверяем  первое чило
-        if(x<0)
-            x=Math.pow(x,4) ;
-        else
-            x=Math.pow(x,2) ;
+        if(x<0) {
+            x = Math.pow(x, 4);
+        }
+        else {
+            x = Math.pow(x, 2);
+        }
         //проверяем второе число
-        if(y<0)
-            y=Math.pow(y,4) ;
-        else
-            y=Math.pow(y,2);
+        if(y<0) {
+            y = Math.pow(y, 4);
+        }
+        else {
+            y = Math.pow(y, 2);
+        }
         //проверяем  третье число
-        if(z<0)
-            z=Math.pow(z,4) ;
-        else
-            z=Math.pow(z,2);
+        if(z<0) {
+            z = Math.pow(z, 4);
+        }
+        else {
+            z = Math.pow(z, 2);
+        }
         //выводим результат
         System.out.println("итоговые значения") ;
         System.out.println("x=>>"+x+"\t   y=>>"+y+"\t    z=>>"+z);
     }
-    static double task6(double x,double y,double z){
+    private static double task6(double x,double y,double z){
         double min=x;
         double max=x;
         //ищем меньшее число
-        if(y<min)
-            min=y;
-        if(z<min)
-            min=z;
+        if(y<min) {
+            min = y;
+        }
+        if(z<min) {
+            min = z;
+        }
         //ищем максимальное
-        if(y>max)
-            max=y;
-        if(z>max)
-            max=z;
+        if(y>max) {
+            max = y;
+        }
+        if(z>max) {
+            max = z;
+        }
         return max+min;
     }
-    static void  task7(double a, double b,int h){
+    private static void  task7(double a, double b,int h){
         double result;
         for(double i=a;i<=b;i=i+h){
-            result=Math.sin(i)*Math.sin(i)-Math.cos(2*i)*Math.cos(2*i);
+            double tmp1=Math.sin(i)*Math.sin(i);
+            double tmp2=Math.cos(2*i)*Math.cos(2*i);
+            result=tmp1-tmp2;
             System.out.printf("\t%4.1f\t%4.1f\n", i, result);
             System.out.println();
 
         }
 
     }
-    static double task8(int A[],int k){
+    private static double task8(int A[],int k){
         double sum=0;
         for(int i=0;i<A.length; i++){
             if (A[i]%k==0)
@@ -119,14 +127,14 @@ public class Exercise1 {
         }
         return sum;
     }
-    static int[] task9(int[] arr1,int[] arr2, int pos ){
+    private static int[] task9(int[] arr1,int[] arr2, int pos ){
         System.arraycopy(arr1,pos,arr2,0,arr2.length);
 
 
         return arr1;
 
     }
-    static void task10(int n) {
+    private static void task10(int n) {
         int arr[] = new int[n];
 
             for (int i = 0; i < n; i++) {
@@ -144,7 +152,6 @@ public class Exercise1 {
 
         Scanner menu=new Scanner(System.in);
         int choise;
-
         do
         {
             System.out.println("\n***************************************");
@@ -165,14 +172,15 @@ public class Exercise1 {
                         if(value<10000)
                             System.out.println("Сумма двух первых цифр  числа\n"  +value +
                                     " равна сумме двух его последних цифр --->"+task1(value));
-
                         else {
                             System.out.println("с числом явно что-то не то(((. BYE");
-                        } }
+                        }
+                    }
                     catch(Exception exc ){
                         System.out.println("ай-яй-яй!!!");
                     }
-                    break;}
+                    break;
+                }
 
                 case 2:{
                     Scanner test2=new Scanner(System.in);
@@ -198,10 +206,10 @@ public class Exercise1 {
                     if(a==0) {
                         System.out.println("увы деление на 0 невозможно");
 
-                        break;  }
+                        break;
+                    }
                     System.out.println("значение выражения равно " + task2(a, b, c));
                     break;
-
                 }
                 case 3:{
                     System.out.println(" введите размеры катетов ");
@@ -219,7 +227,8 @@ public class Exercise1 {
                     double b=test3.nextDouble();
                     if(a==0||b==0) {
                         System.out.println("треугольников с нулевыми сторонами НЕ БЫВАЕТ!!!");
-                        break;}
+                        break;
+                    }
                     task3(a,b);
 
                     break;

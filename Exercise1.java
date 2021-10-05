@@ -134,18 +134,28 @@ public class Exercise1 {
         return arr1;
 
     }
-    private static void task10(int n) {
-        int arr[] = new int[n];
+    private static int[][] task10(int n) {
+        //неправильное решение
+//        int arr[] = new int[n];
+//
+//            for (int i = 0; i < n; i++) {
+//
+//                arr[i] = i + 1;
+//            }
+//            System.out.println(Arrays.toString(arr));
+//            for(int count =1;count<n;count++){
+//
+//                System.out.println(Arrays.toString(mirrorArr(arr)));
+//        }
+        int arr[][]=new int[n][n];
+        for(int i=0;i<arr.length-1;i=i+2){
+            for(int j=0;j<arr[i].length;j++){
+                arr[i][j]=j+1;
+                arr[i+1][j]=arr[i].length-j;
 
-            for (int i = 0; i < n; i++) {
-
-                arr[i] = i + 1;
+                }
             }
-            System.out.println(Arrays.toString(arr));
-            for(int count =1;count<n;count++){
-
-                System.out.println(Arrays.toString(mirrorArr(arr)));
-        }
+        return arr;
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -351,13 +361,27 @@ public class Exercise1 {
                     break;
                 }
                 case 10:{
-                    System.out.println("введите размер матрицы(целое число):");
+                    System.out.println("введите размер матрицы(целое четное число):");
                     Scanner test10=new Scanner(System.in);
                     while(!test10.hasNextInt()) {
                         test10.nextLine();
                         System.out.println("введите целое число:");
                     }
-                    task10(test10.nextInt());
+                    int value=test10.nextInt();
+                    if(!(value % 2 == 0)){
+                        System.out.println("число должно быть четным, извините((");
+                        break;
+
+                    }
+                    int arr[][]= task10(value);
+                    //распечатаем результат
+                    for(int i=0;i<arr.length;i++){
+                        System.out.println();
+                        for(int j=0;j<arr[i].length;j++){
+                            System.out.printf("{  %4d }",arr[i][j]);
+                        }
+                    }
+
 
 
 
